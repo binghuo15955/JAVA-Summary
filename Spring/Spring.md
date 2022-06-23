@@ -1,7 +1,28 @@
 
 
 # Spring
-
+- [Spring](#spring)
+- [1. IOC容器](#1-ioc容器)
+  - [1.1. What Is IOC？](#11-what-is-ioc)
+  - [1.2.WHY IOC？](#12why-ioc)
+  - [1.3. IOC创建对象的方式](#13-ioc创建对象的方式)
+  - [1.4. Spring配置](#14-spring配置)
+  - [1.5. 依赖注入](#15-依赖注入)
+    - [1.5.1 构造器注入【常用】](#151-构造器注入常用)
+    - [1.5.2 Setter方式注入【重点】](#152-setter方式注入重点)
+    - [1.5.3 拓展方式注入【少用】](#153-拓展方式注入少用)
+    - [1.5.4 What is Bean？](#154-what-is-bean)
+    - [1.5.5 Bean作用域](#155-bean作用域)
+    - [1.5.6 singleton作用域(单例模式)](#156-singleton作用域单例模式)
+    - [1.5.7 Bean生命周期](#157-bean生命周期)
+    - [1.5.8 Bean后置处理器](#158-bean后置处理器)
+  - [1.6 Bean自动装配](#16-bean自动装配)
+    - [**1.6.1 在xml中配置**](#161-在xml中配置)
+    - [1.6.2 **在java中配置(替代XML配置)**](#162-在java中配置替代xml配置)
+    - [1.6.3 隐式的自动装配bean【重要】](#163-隐式的自动装配bean重要)
+  - [1.7 Spring有多少种容器](#17-spring有多少种容器)
+    - [BeanFactory容器](#beanfactory容器)
+    - [ApplicationContext容器(extend BeanFactory)](#applicationcontext容器extend-beanfactory)
 # 1. IOC容器
 
 ## 1.1. What Is IOC？

@@ -1,5 +1,10 @@
 # Redis—Zset原理
-
+- [Redis—Zset原理](#rediszset原理)
+  - [本章内容](#本章内容)
+  - [数据结构介绍](#数据结构介绍)
+    - [ziplist](#ziplist)
+    - [skiplist](#skiplist)
+      - [原始跳表skiplist](#原始跳表skiplist)
 ## 本章内容
 
 **主要描述楼主学习Zset的原理过程，不涉及过多源码，旨在理解原理，点到为止。**

@@ -1,5 +1,3 @@
-@[TOC]
-
 # JUC笔记📒
 
 [JDK1.8 API文档](https://docs.oracle.com/javase/8/docs/api/)
@@ -8,9 +6,27 @@
 
 ![image-20220303091915289](JUC%E7%AC%94%E8%AE%B0.assets/image-20220303091915289.png)
 
+- [JUC笔记📒](#juc笔记)
+  - [- Condition](#--condition)
+  - [Semaphore](#semaphore)
+    - [是什么？](#是什么)
+    - [用在哪？场景](#用在哪场景)
+    - [怎么用？](#怎么用)
+      - [构造方法](#构造方法)
+      - [主要方法](#主要方法)
+      - [accquire()](#accquire)
+  - [CyclicBarrier](#cyclicbarrier)
+    - [是什么？](#是什么-1)
+    - [用在哪？场景](#用在哪场景-1)
+    - [怎么用？](#怎么用-1)
+  - [CountDownLatch](#countdownlatch)
+  - [AQS](#aqs)
+    - [是什么？](#是什么-2)
+    - [用在哪？](#用在哪)
+    - [原理](#原理)
+  - [BlockingQueue（阻塞队列）](#blockingqueue阻塞队列)
+  - [Condition](#condition)
 ---
-
-
 
 ## Semaphore
 
@@ -184,14 +200,14 @@ public class CyclicBarrierTest {
 
 **API 方法介绍**
 
-| 返回类型  | 方法名称和描述                                               | 中文解释                                 |
-| --------- | ------------------------------------------------------------ | ---------------------------------------- |
-| `int`     | `await()`Waits until all [parties](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html#getParties--) have invoked `await` on this barrier. | 阻塞等待其他线程到达                     |
+| 返回类型  | 方法名称和描述                                                                                                                                                                                                                             | 中文解释                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| `int`     | `await()`Waits until all [parties](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html#getParties--) have invoked `await` on this barrier.                                                                   | 阻塞等待其他线程到达                     |
 | `int`     | `await(long timeout, TimeUnit unit)`Waits until all [parties](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html#getParties--) have invoked `await` on this barrier, or the specified waiting time elapses. | 阻塞等待其他线程到达，或者设定的时间到达 |
-| `int`     | `getNumberWaiting()`Returns the number of parties currently waiting at the barrier. | 获得当前到达屏障点的线程数量             |
-| `int`     | `getParties()`Returns the number of parties required to trip this barrier. | 获取屏障点要求到达的线程数量             |
-| `boolean` | `isBroken()`Queries if this barrier is in a broken state.    | 查询是否当前屏障状态是broken             |
-| `void`    | `reset()`Resets the barrier to its initial state.            | 重置初始化屏障状态                       |
+| `int`     | `getNumberWaiting()`Returns the number of parties currently waiting at the barrier.                                                                                                                                                        | 获得当前到达屏障点的线程数量             |
+| `int`     | `getParties()`Returns the number of parties required to trip this barrier.                                                                                                                                                                 | 获取屏障点要求到达的线程数量             |
+| `boolean` | `isBroken()`Queries if this barrier is in a broken state.                                                                                                                                                                                  | 查询是否当前屏障状态是broken             |
+| `void`    | `reset()`Resets the barrier to its initial state.                                                                                                                                                                                          | 重置初始化屏障状态                       |
 
 **测试**
 

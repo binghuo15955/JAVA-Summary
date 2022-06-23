@@ -1,5 +1,15 @@
 ## JVM垃圾收集器
 
+- [JVM垃圾收集器](#jvm垃圾收集器)
+- [- G1收集器](#--g1收集器)
+  - [相关概念了解](#相关概念了解)
+  - [概览](#概览)
+  - [CMS收集器](#cms收集器)
+    - [缺点](#缺点)
+    - [参数](#参数)
+    - [步骤](#步骤)
+  - [G1收集器](#g1收集器)
+---
 参考资料
 
 **[CSDN-Java——七种垃圾收集器+JDK11最新ZGC](https://blog.csdn.net/CrankZ/article/details/86009279)**
@@ -85,7 +95,7 @@
 **-XX:+CMSFullGCsBeforeCompaction**：设置进行几次Full GC后，进行一次碎片整理，默认为0
 **-XX:ParallelCMSThreads**：设定CMS的线程数量（一般情况约等于可用CPU数量） 
 
-#### **步骤**
+#### 步骤
 
 ![img](JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.assets/20190107162304806.png)
 

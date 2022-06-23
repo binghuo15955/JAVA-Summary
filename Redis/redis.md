@@ -5,7 +5,65 @@
 > https://www.bilibili.com/video/BV1S54y1R7SB?p=36&spm_id_from=pageDriver
 >
 > 侵删！
-
+- [Redis](#redis)
+  - [1. NoSQL概述](#1-nosql概述)
+    - [为什么要使用NoSQL？](#为什么要使用nosql)
+    - [什么是NoSQL？](#什么是nosql)
+    - [NoSQL的四大分类](#nosql的四大分类)
+  - [2. Redis 入门](#2-redis-入门)
+    - [Redis安装](#redis安装)
+    - [测试性能Redis benchmark](#测试性能redis-benchmark)
+    - [基础知识](#基础知识)
+  - [3. 五大数据类型](#3-五大数据类型)
+    - [Redis-Key](#redis-key)
+    - [String字符串](#string字符串)
+    - [List列表](#list列表)
+    - [Set集合](#set集合)
+    - [Hash散列](#hash散列)
+    - [Zset(sorted sets)有序集合](#zsetsorted-sets有序集合)
+  - [4. 三种特殊数据类型](#4-三种特殊数据类型)
+    - [4.1. geospatial（地理位置）](#41-geospatial地理位置)
+      - [1. GEOADD: 添加地理位置](#1-geoadd-添加地理位置)
+      - [2. GEOPOS：获取指定城市的经纬度](#2-geopos获取指定城市的经纬度)
+      - [3. GEODIST：获取两个地点的直线距离](#3-geodist获取两个地点的直线距离)
+      - [4. GEORADIUS：以给定经纬度为中心，获取方圆几里的元素](#4-georadius以给定经纬度为中心获取方圆几里的元素)
+      - [5. GEORADIUSBYMEMBER：以元素为中心，获取方圆几里的元素（包括自己）](#5-georadiusbymember以元素为中心获取方圆几里的元素包括自己)
+      - [6. GEOHASH：返回一个或者多个位置元素的GeoHash表示(少用)](#6-geohash返回一个或者多个位置元素的geohash表示少用)
+    - [4.2. Hyperloglogs](#42-hyperloglogs)
+    - [4.3. Bitmaps](#43-bitmaps)
+  - [5. 事务](#5-事务)
+  - [6. Jedis](#6-jedis)
+  - [7. SpringBoot整合](#7-springboot整合)
+    - [分析源码](#分析源码)
+    - [使用步骤](#使用步骤)
+      - [1、导入依赖](#1导入依赖)
+      - [2、配置](#2配置)
+      - [3、使用](#3使用)
+    - [POJO序列化](#pojo序列化)
+    - [测试结果截图](#测试结果截图)
+    - [自定义RedisTemplate](#自定义redistemplate)
+    - [Set JSON对象](#set-json对象)
+  - [8. Redis.conf详解](#8-redisconf详解)
+  - [9. Redis持久化](#9-redis持久化)
+    - [RDB（Redis DataBase）](#rdbredis-database)
+    - [AOF（Append only file）](#aofappend-only-file)
+  - [10. Redis发布订阅](#10-redis发布订阅)
+    - [订阅发布消息图](#订阅发布消息图)
+    - [命令](#命令)
+    - [原理](#原理)
+    - [使用场景](#使用场景)
+  - [11. Redis主从复制](#11-redis主从复制)
+    - [概念](#概念)
+    - [主要作用](#主要作用)
+    - [配置](#配置)
+    - [复制原理](#复制原理)
+    - [层层链路（工作中不会使用）](#层层链路工作中不会使用)
+    - [哨兵模式(工作中使用，高频⚠️)](#哨兵模式工作中使用高频️)
+      - [配置](#配置-1)
+      - [原理](#原理-1)
+      - [测试](#测试)
+      - [优缺点](#优缺点)
+      - [全部配置](#全部配置)
 ## 1. NoSQL概述
 ### 为什么要使用NoSQL？
 
@@ -1357,7 +1415,7 @@ class Redis02SpringbootApplicationTests {
 
 ![image-20220224201554604](redis.assets/image-20220224201554604.png)
 
-### **测试结果截图**
+### 测试结果截图
 
 <img src="redis.assets/image-20220224181913822.png" alt="image-20220224181913822" style="zoom:100%;" />
 

@@ -6,13 +6,13 @@
 
 ## 1.1. What Is IOC？
 
-==**IoC(Inversion of Control)是一种设计思想，DI只是实现IoC的一种方法。**==
+**IoC(Inversion of Control)是一种设计思想，DI只是实现IoC的一种方法。**
 
-**==控制反转==**：是一种通过描述(XML或注解)并通过第三方去生产或获取特定对象的方式。
+**控制反转**：是一种通过描述(XML或注解)并通过第三方去生产或获取特定对象的方式。
 
 ## 1.2.WHY IOC？
 
-==**解耦**==
+**解耦**
 
 ## 1.3. IOC创建对象的方式
 
@@ -36,7 +36,7 @@
       </bean>
       ```
 
-   3. 直接通过参数名,**==推荐==👍**
+   3. 直接通过参数名,**推荐👍**
 
       ```xml
       <bean id="user" class="com.yt.pojo.User">
@@ -44,7 +44,7 @@
       </bean>
       ```
 
-   **==总结：在配置文件加载的时候，容器中管理的对象就已经初始化了！==**
+   **总结：在配置文件加载的时候，容器中管理的对象就已经初始化了！**
 
 ## 1.4. Spring配置
 
@@ -98,20 +98,20 @@
 
 ### 1.5.4 What is Bean？
 
-**==bean 是由 Spring IoC 容器实例化、组装和管理的对象。==**
+**bean 是由 Spring IoC 容器实例化、组装和管理的对象。**
 
 ### 1.5.5 Bean作用域
 
 | 作用域            | 描述                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| **==singleton==** | 在spring IoC容器**==仅存在一个==**Bean实例，Bean以单例方式存在，默认值 |
-| **==prototype==** | **==每次请求都会创建一个新的 bean 实例。==**                 |
+| **singleton** | 在spring IoC容器**仅存在一个**Bean实例，Bean以单例方式存在，默认值 |
+| **prototype** | **每次请求都会创建一个新的 bean 实例。**                 |
 | request           | 每一次 HTTP 请求都会产生一个新的 bean，该 bean 仅在当前 HTTP request 内有效。 |
 | session           | 每一次 HTTP 请求都会产生一个新的 bean，该 bean 仅在当前 HTTP session 内有效。 |
 
 ### 1.5.6 singleton作用域(单例模式)
 
-> Singleton 是单例类型，就是在**==创建起容器时就同时自动创建了一个 bean 的对象==**，不管你是否使用，他都存在了，每次获取到的对象都是同一个对象。注意，**Singleton 是默认作用域**；
+> Singleton 是单例类型，就是在**创建起容器时就同时自动创建了一个 bean 的对象**，不管你是否使用，他都存在了，每次获取到的对象都是同一个对象。注意，**Singleton 是默认作用域**；
 
 ```xml
 <!-- A bean definition with singleton scope -->
@@ -133,7 +133,7 @@ protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable
         instanceWrapper = (BeanWrapper)this.factoryBeanInstanceCache.remove(beanName);
     }
 
-    if (instanceWrapper == null) {
+    if (instanceWrapper  null) {
     	// 实例化阶段
         instanceWrapper = this.createBeanInstance(beanName, mbd, args);
     }
@@ -155,11 +155,11 @@ protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable
 }
 ```
 
-**==详细Bean声明周期图示==**![image-20220216003111915](Spring.assets/image-20220216003111915.png)
+**详细Bean声明周期图示**![image-20220216003111915](Spring.assets/image-20220216003111915.png)
 
 ### 1.5.8 Bean后置处理器
 
-> **==在调用初始化方法前后对Bean进行额外的处理，实现BeanPostProcessor接口==**
+> **在调用初始化方法前后对Bean进行额外的处理，实现BeanPostProcessor接口**
 
 ```java
 postProcessBeforeInitialization(Object, String)
@@ -173,7 +173,7 @@ postProcessAfterInitialization(Object, String)
 
 
 
-在Spring种**==三种装配方式==**
+在Spring种**三种装配方式**
 
 ### **1.6.1 在xml中配置**
 
@@ -208,7 +208,7 @@ postProcessAfterInitialization(Object, String)
 
 ### 1.6.2 **在java中配置(替代XML配置)**
 
-@Bean和`@Configuration==spring.xml`声明当前类是一个**配置类**
+@Bean和`@Configurationspring.xml`声明当前类是一个**配置类**
 
 ### 1.6.3 隐式的自动装配bean【重要】
 
@@ -290,7 +290,7 @@ public class People {
 | **@Resource**                                    | @Autowired                                        |
 | ------------------------------------------------ | ------------------------------------------------- |
 | 都是**自动装配**，都可以**放在属性字段上**       | 都是**自动装配**，都可以**放在属性字段上**        |
-| ==**默认byName方式->byType方式->报错【常用】**== | ==**byType方式 而且必须要求对象存在！【常用】**== |
+| **默认byName方式->byType方式->报错【常用】** | **byType方式 而且必须要求对象存在！【常用】** |
 
 
 
@@ -302,11 +302,11 @@ public class People {
 
 ### ApplicationContext容器(extend BeanFactory)
 
-Spring容器以前通过BeanFacotry容器，如今**==通过ApplicationContext容器==**来实现.
+Spring容器以前通过BeanFacotry容器，如今**通过ApplicationContext容器**来实现.
 
 **个人理解：通过spring.xml配置文件定义好映射POJO类的Bean并定义好初始化参数，剩下的交给IOC容器统一管理。例子：将你的控制权交给别人，告诉他这个东西怎么用就好了**
 
-**==区别==**
+**区别**
 
 | BeanFactory                | ApplicationContext       |
 | -------------------------- | ------------------------ |

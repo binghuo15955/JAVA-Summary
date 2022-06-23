@@ -1,30 +1,6 @@
-<!-- vscode-markdown-toc -->
-* 1. [Semaphore](#semaphore)
-    * 1.1. [是什么？](#是什么？)
-    * 1.2. [用在哪？场景](#用在哪？场景)
-    * 1.3. [怎么用？](#怎么用？)
-        * 1.3.1. [构造方法](#构造方法)
-        * 1.3.2. [主要方法](#主要方法)
-        * 1.3.3. [accquire()](#accquire())
-* 2. [CyclicBarrier](#cyclicbarrier)
-    * 2.1. [是什么？](#是什么？-1)
-    * 2.2. [用在哪？场景](#用在哪？场景-1)
-    * 2.3. [怎么用？](#怎么用？-1)
-* 3. [CountDownLatch](#countdownlatch)
-* 4. [AQS](#aqs)
-    * 4.1. [是什么？](#是什么？-2)
-    * 4.2. [用在哪？](#用在哪？)
-    * 4.3. [原理](#原理)
-* 5. [BlockingQueue（阻塞队列）](#blockingqueue（阻塞队列）)
-* 6. [Condition](#condition)
+# JUC笔记📒
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># JUC笔记📒
-
-
+[TOC]
 
 [JDK1.8 API文档](https://docs.oracle.com/javase/8/docs/api/)
 

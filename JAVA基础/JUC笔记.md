@@ -1,6 +1,30 @@
-# JUC笔记📒
+<!-- vscode-markdown-toc -->
+* 1. [Semaphore](#semaphore)
+    * 1.1. [是什么？](#是什么？)
+    * 1.2. [用在哪？场景](#用在哪？场景)
+    * 1.3. [怎么用？](#怎么用？)
+        * 1.3.1. [构造方法](#构造方法)
+        * 1.3.2. [主要方法](#主要方法)
+        * 1.3.3. [accquire()](#accquire())
+* 2. [CyclicBarrier](#cyclicbarrier)
+    * 2.1. [是什么？](#是什么？-1)
+    * 2.2. [用在哪？场景](#用在哪？场景-1)
+    * 2.3. [怎么用？](#怎么用？-1)
+* 3. [CountDownLatch](#countdownlatch)
+* 4. [AQS](#aqs)
+    * 4.1. [是什么？](#是什么？-2)
+    * 4.2. [用在哪？](#用在哪？)
+    * 4.3. [原理](#原理)
+* 5. [BlockingQueue（阻塞队列）](#blockingqueue（阻塞队列）)
+* 6. [Condition](#condition)
 
-[TOC]
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc --># JUC笔记📒
+
+
 
 [JDK1.8 API文档](https://docs.oracle.com/javase/8/docs/api/)
 
@@ -12,9 +36,9 @@
 
 
 
-## Semaphore
+##  1. <a name='semaphore'></a>Semaphore
 
-### 是什么？
+###  1.1. <a name='是什么？'></a>是什么？
 
 > A counting semaphore. Conceptually, a semaphore maintains a set of permits.
 >
@@ -34,7 +58,7 @@
 
 ![image-20220303151003805](JUC%E7%AC%94%E8%AE%B0.assets/image-20220303151003805.png)
 
-### 用在哪？场景
+###  1.2. <a name='用在哪？场景'></a>用在哪？场景
 
 > **Semaphores are often used to restrict the number of threads than can access some (physical or logical) resource. **
 >
@@ -42,9 +66,9 @@
 
 
 
-### 怎么用？
+###  1.3. <a name='怎么用？'></a>怎么用？
 
-#### 构造方法
+####  1.3.1. <a name='构造方法'></a>构造方法
 
 ![image-20220303095903966](JUC%E7%AC%94%E8%AE%B0.assets/image-20220303095903966.png) 
 
@@ -56,13 +80,13 @@
 
 
 
-#### 主要方法
+####  1.3.2. <a name='主要方法'></a>主要方法
 
 ![image-20220303101409663](JUC%E7%AC%94%E8%AE%B0.assets/image-20220303101409663.png) 
 
 
 
-#### accquire()
+####  1.3.3. <a name='accquire()'></a>accquire()
 
 ```java
 public class SemaphoreTest {
@@ -111,9 +135,9 @@ public class SemaphoreTest {
 
 
 
-## CyclicBarrier
+##  2. <a name='cyclicbarrier'></a>CyclicBarrier
 
-### 是什么？
+###  2.1. <a name='是什么？-1'></a>是什么？
 
 > **A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point.**
 >
@@ -125,7 +149,7 @@ public class SemaphoreTest {
 
 
 
-### 用在哪？场景
+###  2.2. <a name='用在哪？场景-1'></a>用在哪？场景
 
 **在线拼团**
 
@@ -180,7 +204,7 @@ public class CyclicBarrierTest {
 
 
 
-### 怎么用？
+###  2.3. <a name='怎么用？-1'></a>怎么用？
 
 **API 方法介绍**
 
@@ -227,7 +251,7 @@ public class CyclicBarrierTest {
 
 
 
-## CountDownLatch
+##  3. <a name='countdownlatch'></a>CountDownLatch
 
 减法计数器：当每调用一次`countDownLatch.countDown()`方法后，就会数量-1；当计数器归0之后，`countDownLatch.await()`就会被唤醒，继续执行！
 
@@ -243,11 +267,11 @@ public class CyclicBarrierTest {
 
 
 
-## AQS
+##  4. <a name='aqs'></a>AQS
 
 **[参考链接🔗](https://blog.csdn.net/mulinsen77/article/details/84583716)**
 
-### 是什么？
+###  4.1. <a name='是什么？-2'></a>是什么？
 
 > **AQS就是基于CLH队列，用volatile修饰共享变量state，线程通过CAS去改变状态符，成功则获取锁成功，失败则进入等待队列，等待被唤醒**
 
@@ -260,7 +284,7 @@ CLH（Craig，Landin，and Hagersten）队列是一个虚拟的双向队列，�
 
 
 
-### 用在哪？
+###  4.2. <a name='用在哪？'></a>用在哪？
 
 实现了AQS的锁有：CAS、MutexLock、**ReadWriteLock、Condition、Semaphore、CyclicBarrier**都是AQS的衍生物
 
@@ -277,7 +301,7 @@ AQS 定义了**两种资源共享方式**：
 
 
 
-### 原理
+###  4.3. <a name='原理'></a>原理
 
 **它为我们各种并发类提供了同步的模版！**
 
@@ -305,7 +329,7 @@ ReentrantLock为例，（可重入独占式锁）：**state初始化为0**，表
 
 
 
-## BlockingQueue（阻塞队列）
+##  5. <a name='blockingqueue（阻塞队列）'></a>BlockingQueue（阻塞队列）
 
 **原理：**就是一个会阻塞的队列FIFO
 
@@ -392,7 +416,7 @@ public class SynchronousQueueTest {
 
 
 
-## Condition
+##  6. <a name='condition'></a>Condition
 
 用于线程间通信，可以精准唤醒。
 
